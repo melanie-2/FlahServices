@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Modelo PHP</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="./css/form.css">
+</head>
+<body>		
+	<form action="turmacadastrarcodigo.php" method="post">
+	<h3>Cadastrar servico</h3>
+	
+	<select name='servico_id' required>
+	<option value=""></option>
+<?php
+	 if ($result->num_rows > 0) {
+	  while($row = $result->fetch_assoc()) {			
+			echo "<option value=" . $row["id"] . ">" . $row["servico"] . "</option>";
+		}
+	}
+?>	
+</select>
+	<input type="submit" value="Selecionar">
+	</form>
+	
+ <button><a href="principal.php">Voltar à página inicial</a></button>
+	
+</body>
+</html>
